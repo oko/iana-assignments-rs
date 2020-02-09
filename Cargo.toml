@@ -2,6 +2,7 @@
 name = "iana-assignments-rs"
 version = "0.0.1"
 authors = ["Jacob Okamoto <oko@oko.io>"]
+license = "BSD-3-Clause"
 edition = "2018"
 excludes = [
     "tools/*",
