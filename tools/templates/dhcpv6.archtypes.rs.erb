@@ -1,0 +1,4 @@
+pub type ArchType = u16;
+<% rows.each do |row| %>
+pub const <%= row.desc %>: ArchType = <%= row.value %>;	// <%= row.ref %>
+<% end %>

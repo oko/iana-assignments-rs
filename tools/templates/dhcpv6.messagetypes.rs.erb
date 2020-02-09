@@ -1,0 +1,4 @@
+pub type MessageType = u8;
+<% rows.each do |row| %>
+pub const <%= row.desc %>: MessageType = <%= row.value %>;	// <%= row.ref %>
+<% end %>

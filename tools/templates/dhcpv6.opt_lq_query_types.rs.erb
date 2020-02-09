@@ -1,0 +1,4 @@
+pub type OptLQQueryType = u8;
+<% rows.each do |row| %>
+pub const <%= row.desc %>: OptLQQueryType = <%= row.value %>;	// <%= row.ref %>
+<% end %>

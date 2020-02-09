@@ -1,0 +1,4 @@
+pub type OptionCode = u16;
+<% rows.each do |row| %>
+pub const <%= row.desc %>: OptionCode = <%= row.value %>;	// <%= row.ref %>, ORO: <%= row.oro %>, SINGLETON: <%= row.single %>
+<% end %>

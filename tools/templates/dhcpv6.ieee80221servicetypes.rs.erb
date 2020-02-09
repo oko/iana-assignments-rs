@@ -1,0 +1,4 @@
+pub type IEEE80221ServiceType = u16;
+<% rows.each do |row| %>
+pub const <%= row.desc %>: IEEE80221ServiceType = <%= row.value %>;	// <%= row.ref %>
+<% end %>
