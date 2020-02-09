@@ -137,6 +137,29 @@ dhcpv6ntp_tsrc_subopt_types = Proc.new {
 }
 functions['dhcpv6.ntp_tsrc_subopt_types'] = dhcpv6ntp_tsrc_subopt_types
 
+arphwtypes = Proc.new {
+  rows = CSV.new(
+    Net::HTTP.get(
+      URI('https://www.iana.org/assignments/arp-parameters/arp-parameters-2.csv')
+    ).sub("\nTR", " ")
+  ).read.map do |row|
+    OpenStruct.new(value: row[0].to_i, desc: row[1].strip.underscore.normalize, ref: row[2])
+  end.select do |row|
+    !['RESERVED', 'UNASSIGNED'].include? row.desc
+  end
+  rct = {}
+  rows.each do |row|
+    if rct.key? row.desc
+      rct[row.desc] += 1
+      row.desc = "#{row.desc}_#{rct[row.desc]}"
+    else
+      rct[row.desc] = 0
+    end
+  end
+  {:rows => rows[1..]}
+}
+functions['arp.hwtypes'] = arphwtypes
+
 if $PROGRAM_NAME == __FILE__
   options = {
     :type => 'rs'

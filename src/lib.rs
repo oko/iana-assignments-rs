@@ -1,5 +1,6 @@
 #![no_std]
 pub mod dhcpv6;
+pub mod arp;
 
 #[cfg(test)]
 mod tests {

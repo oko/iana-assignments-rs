@@ -1,6 +1,6 @@
 [package]
 name = "iana-assignments-rs"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Jacob Okamoto <github@oko.io>"]
 license = "BSD-3-Clause"
 description = "Rust library exporting IANA registry constants."
