@@ -22,3 +22,32 @@ pub const OUTDATED_BINDING_INFORMATION: StatusCode = 19;	// [RFC8156]
 pub const SERVER_SHUTTING_DOWN: StatusCode = 20;	// [RFC8156]
 pub const DNS_UPDATE_NOT_SUPPORTED: StatusCode = 21;	// [RFC8156]
 pub const EXCESSIVE_TIME_SKEW: StatusCode = 22;	// [RFC8156]
+
+pub fn to_str(a: StatusCode) -> Result<&'static str, ()> {
+  match a {
+    0 => Ok("SUCCESS"),
+    1 => Ok("UNSPEC_FAIL"),
+    2 => Ok("NO_ADDRS_AVAIL"),
+    3 => Ok("NO_BINDING"),
+    4 => Ok("NOT_ON_LINK"),
+    5 => Ok("USE_MULTICAST"),
+    6 => Ok("NO_PREFIX_AVAIL"),
+    7 => Ok("UNKNOWN_QUERY_TYPE"),
+    8 => Ok("MALFORMED_QUERY"),
+    9 => Ok("NOT_CONFIGURED"),
+    10 => Ok("NOT_ALLOWED"),
+    11 => Ok("QUERY_TERMINATED"),
+    12 => Ok("DATA_MISSING"),
+    13 => Ok("CATCH_UP_COMPLETE"),
+    14 => Ok("NOT_SUPPORTED"),
+    15 => Ok("TLS_CONNECTION_REFUSED"),
+    16 => Ok("ADDRESS_IN_USE"),
+    17 => Ok("CONFIGURATION_CONFLICT"),
+    18 => Ok("MISSING_BINDING_INFORMATION"),
+    19 => Ok("OUTDATED_BINDING_INFORMATION"),
+    20 => Ok("SERVER_SHUTTING_DOWN"),
+    21 => Ok("DNS_UPDATE_NOT_SUPPORTED"),
+    22 => Ok("EXCESSIVE_TIME_SKEW"),
+    _ => Err(()),
+  }
+}

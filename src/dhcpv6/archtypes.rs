@@ -32,3 +32,42 @@ pub const RISC_V_128_BIT_UEFI: ArchType = 29;	// [Dong_Wei]
 pub const RISC_V_128_BIT_UEFI_BOOT_FROM_HTTP: ArchType = 30;	// [Dong_Wei]
 pub const S390_BASIC: ArchType = 31;	// [Viktor_Mihajlovski]
 pub const S390_EXTENDED: ArchType = 32;	// [Viktor_Mihajlovski]
+
+pub fn to_str(a: ArchType) -> Result<&'static str, ()> {
+  match a {
+    0 => Ok("X86_BIOS"),
+    1 => Ok("NECPC98"),
+    2 => Ok("ITANIUM"),
+    3 => Ok("DEC_ALPHA"),
+    4 => Ok("ARC_X86"),
+    5 => Ok("INTEL_LEAN_CLIENT"),
+    6 => Ok("X86_UEFI"),
+    7 => Ok("X64_UEFI"),
+    8 => Ok("EFI_XSCALE"),
+    9 => Ok("EBC"),
+    10 => Ok("ARM_32_BIT_UEFI"),
+    11 => Ok("ARM_64_BIT_UEFI"),
+    12 => Ok("POWERPC_OPEN_FIRMWARE"),
+    13 => Ok("POWERPC_EPAPR"),
+    14 => Ok("POWER_OPAL_V3"),
+    15 => Ok("X86_UEFI_BOOT_FROM_HTTP"),
+    16 => Ok("X64_UEFI_BOOT_FROM_HTTP"),
+    17 => Ok("EBC_BOOT_FROM_HTTP"),
+    18 => Ok("ARM_UEFI_32_BOOT_FROM_HTTP"),
+    19 => Ok("ARM_UEFI_64_BOOT_FROM_HTTP"),
+    20 => Ok("PCAT_BIOS_BOOT_FROM_HTTP"),
+    21 => Ok("ARM_32_UBOOT"),
+    22 => Ok("ARM_64_UBOOT"),
+    23 => Ok("ARM_UBOOT_32_BOOT_FROM_HTTP"),
+    24 => Ok("ARM_UBOOT_64_BOOT_FROM_HTTP"),
+    25 => Ok("RISC_V_32_BIT_UEFI"),
+    26 => Ok("RISC_V_32_BIT_UEFI_BOOT_FROM_HTTP"),
+    27 => Ok("RISC_V_64_BIT_UEFI"),
+    28 => Ok("RISC_V_64_BIT_UEFI_BOOT_FROM_HTTP"),
+    29 => Ok("RISC_V_128_BIT_UEFI"),
+    30 => Ok("RISC_V_128_BIT_UEFI_BOOT_FROM_HTTP"),
+    31 => Ok("S390_BASIC"),
+    32 => Ok("S390_EXTENDED"),
+    _ => Err(()),
+  }
+}

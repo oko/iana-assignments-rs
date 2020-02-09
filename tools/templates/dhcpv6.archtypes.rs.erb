@@ -2,3 +2,12 @@ pub type ArchType = u16;
 <% rows.each do |row| %>
 pub const <%= row.desc %>: ArchType = <%= row.value %>;	// <%= row.ref %>
 <% end %>
+
+pub fn to_str(a: ArchType) -> Result<&'static str, ()> {
+  match a {
+    <% rows.each do |row| %>
+    <%= row.value %> => Ok("<%= row.desc %>"),
+    <% end %>
+    _ => Err(()),
+  }
+}

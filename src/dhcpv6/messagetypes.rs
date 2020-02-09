@@ -34,3 +34,44 @@ pub const CONNECTREPLY: MessageType = 32;	// [RFC8156]
 pub const DISCONNECT: MessageType = 33;	// [RFC8156]
 pub const STATE: MessageType = 34;	// [RFC8156]
 pub const CONTACT: MessageType = 35;	// [RFC8156]
+
+pub fn to_str(a: MessageType) -> Result<&'static str, ()> {
+  match a {
+    1 => Ok("SOLICIT"),
+    2 => Ok("ADVERTISE"),
+    3 => Ok("REQUEST"),
+    4 => Ok("CONFIRM"),
+    5 => Ok("RENEW"),
+    6 => Ok("REBIND"),
+    7 => Ok("REPLY"),
+    8 => Ok("RELEASE"),
+    9 => Ok("DECLINE"),
+    10 => Ok("RECONFIGURE"),
+    11 => Ok("INFORMATION_REQUEST"),
+    12 => Ok("RELAY_FORW"),
+    13 => Ok("RELAY_REPL"),
+    14 => Ok("LEASEQUERY"),
+    15 => Ok("LEASEQUERY_REPLY"),
+    16 => Ok("LEASEQUERY_DONE"),
+    17 => Ok("LEASEQUERY_DATA"),
+    18 => Ok("RECONFIGURE_REQUEST"),
+    19 => Ok("RECONFIGURE_REPLY"),
+    20 => Ok("DHCPV4_QUERY"),
+    21 => Ok("DHCPV4_RESPONSE"),
+    22 => Ok("ACTIVELEASEQUERY"),
+    23 => Ok("STARTTLS"),
+    24 => Ok("BNDUPD"),
+    25 => Ok("BNDREPLY"),
+    26 => Ok("POOLREQ"),
+    27 => Ok("POOLRESP"),
+    28 => Ok("UPDREQ"),
+    29 => Ok("UPDREQALL"),
+    30 => Ok("UPDDONE"),
+    31 => Ok("CONNECT"),
+    32 => Ok("CONNECTREPLY"),
+    33 => Ok("DISCONNECT"),
+    34 => Ok("STATE"),
+    35 => Ok("CONTACT"),
+    _ => Err(()),
+  }
+}
